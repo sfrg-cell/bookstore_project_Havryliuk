@@ -56,12 +56,12 @@ python manage.py runserver
 | Author Detail | `/authors/<id>` | Author details and their books |
 | Publishers | `/publishers` | List of all publishers |
 | Publisher Detail | `/publishers/<id>` | Publisher details and their books |
-| Add Data | `/add_data` | Admin panel for adding new data |
+| Add Data | `/admin/data` | Admin panel for adding new data |
 | Sign In | `/auth/sign_in` | User registration page |
 | Log In | `/auth/log_in` | User login page |
 | Log Out | `/auth/log_out` | User logout page |
-| User Profile | `/users/user` | User profile and order history |
-| Cart | `/users/user/cart` | Shopping cart page |
+| User Profile | `/users/user<id>` | User profile and order history |
+| Cart | `/users/user<id>/cart` | Shopping cart page |
 
 ### Books
 
