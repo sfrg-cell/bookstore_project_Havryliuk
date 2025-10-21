@@ -4,9 +4,12 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.http import Http404
 from rest_framework import status
+from app.permissions import IsAdminUserOrReadOnly
 
 
 class BookList(APIView):
+    permission_classes = [IsAdminUserOrReadOnly]
+
     def get(self, request, format=None):
         books = Book.objects.all()
         serializer = BookSerializer(books, many=True)
@@ -21,6 +24,8 @@ class BookList(APIView):
 
 
 class BookDetail(APIView):
+    permission_classes = [IsAdminUserOrReadOnly]
+
     def get_object(self, pk):
         try:
             return Book.objects.get(pk=pk)
@@ -47,6 +52,8 @@ class BookDetail(APIView):
 
 
 class AuthorList(APIView):
+    permission_classes = [IsAdminUserOrReadOnly]
+
     def get(self, request):
         authors = Author.objects.all()
         serializer = AuthorSerializer(authors, many=True)
@@ -61,6 +68,8 @@ class AuthorList(APIView):
 
 
 class AuthorDetail(APIView):
+    permission_classes = [IsAdminUserOrReadOnly]
+
     def get_object(self, pk):
         try:
             return Author.objects.get(pk=pk)
@@ -87,6 +96,8 @@ class AuthorDetail(APIView):
 
 
 class PublisherList(APIView):
+    permission_classes = [IsAdminUserOrReadOnly]
+
     def get(self, request, format=None):
         publishers = Publisher.objects.all()
         serializer = PublisherSerializer(publishers, many=True)
@@ -101,6 +112,8 @@ class PublisherList(APIView):
 
 
 class PublisherDetail(APIView):
+    permission_classes = [IsAdminUserOrReadOnly]
+
     def get_object(self, pk):
         try:
             return Publisher.objects.get(pk=pk)
@@ -127,6 +140,8 @@ class PublisherDetail(APIView):
 
 
 class GenreList(APIView):
+    permission_classes = [IsAdminUserOrReadOnly]
+
     def get(self, request, format=None):
         genres = Genre.objects.all()
         serializer = GenreSerializer(genres, many=True)
@@ -141,6 +156,8 @@ class GenreList(APIView):
 
 
 class GenreDetail(APIView):
+    permission_classes = [IsAdminUserOrReadOnly]
+
     def get_object(self, pk):
         try:
             return Genre.objects.get(pk=pk)
