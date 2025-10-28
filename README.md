@@ -43,6 +43,11 @@ Run migrations and start the server:
 python manage.py migrate
 python manage.py runserver
 ```
+Run tests:
+```bash
+pytest tests/app/test.py
+```
+
 ## API Endpoints Documentation
 
 ## Frontend Pages
