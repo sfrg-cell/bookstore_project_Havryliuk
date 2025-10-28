@@ -155,14 +155,20 @@ LOGGING = {
     "disable_existing_loggers": False,
     "handlers": {
         "console": {"class": "logging.StreamHandler"},
+        "file": {
+            "class": "logging.FileHandler",
+            "filename": "general.log",
+            "mode": "a",
+            "encoding": "utf-8",
+        }
     },
     "loggers": {
         "i": {
-            "handlers": ["console"],
-            "level": "INFO",
+                "handlers": ["console", "file"],
+                "level": "INFO",
             },
         "w": {
-                "handlers": ["console"],
+                "handlers": ["console", "file"],
                 "level": "WARNING",
             },
     }
